@@ -135,6 +135,8 @@ augroup END
  
 " ycm configuration {{{
 
+highlight PMenu ctermfg=blue ctermbg=236 guifg=white guibg=darkgrey
+highlight PMenuSel ctermfg=white ctermbg=237 guifg=white guibg=black
 set completeopt=longest,menu 
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 inoremap pumvisible() ? "\" : "\"
