@@ -16,8 +16,6 @@ nnoremap <S-Left> :vertical resize-1<cr>
 nnoremap <S-Right> :vertical resize+1<cr>
 nnoremap <S-Up> :resize-1<cr>
 nnoremap <S-Down> :resize+1<cr>
-let g:loaded_perl_provider = 1
-let g:coc_config_home='~/.vim'
 "}}}
 
 " Vimscript file setting ---------------  {{{
