@@ -1,6 +1,13 @@
 :let mapleader = "-"
 :let maplocalleader = "\\"
 
+:" DeepSeek 插件配置 {{{
+let g:deepseek_api_key = "sk-196d2771df8241688c644feac65399a4"  " 替换为你的API密钥
+" 可选配置
+" " let g:deepseek_doc_dir = "/sdcard/my_documents"  " 自定义文档目录
+" " let g:deepseek_no_mappings = 1  " 禁用默认快捷键
+" }}}
+
 " common tags ---------- {{{
 set nu
 set relativenumber
@@ -174,6 +181,7 @@ Plug 'preservim/nerdtree'
 Plug 'voldikss/vim-translator'
 Plug 'honza/vim-snippets'
 Plug 'heronghua/ctrlp.vim'
+Plug 'git@github.com:heronghua/account.git'
 Plug 'https://gitee.com/he_ronghua/newFile.git'
 Plug 'https://gitee.com/he_ronghua/f4-compile-f5-run.git'
 Plug 'fifi2/gtd.vim'
@@ -182,3 +190,15 @@ Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
 call plug#end()
 " }}}   
+
+" 复制到系统剪贴板 {{{
+au TextYankPost * call system('termux-clipboard-set &', @")
+
+" 粘贴时读取系统剪贴板
+function! Paste()
+    let @" = system('termux-clipboard-get')
+    return 'p'
+endfunction
+nnoremap <expr> p Paste()
+nnoremap <expr> P 'P'  " 保留大写 P 行为[citation:1][citation:4]
+"}}}
